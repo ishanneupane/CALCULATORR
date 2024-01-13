@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 var eqn = "", expression = "";
-var result = "0";
+String result = "0";
 
 class homePagee extends StatefulWidget {
   const homePagee({super.key});
@@ -36,7 +36,10 @@ class _homePageeState extends State<homePagee> {
     });
   }
 
-  button(var buttontext, Color colors) {
+  button(
+    var buttontext,
+    Color colors,
+  ) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(90),
@@ -46,7 +49,7 @@ class _homePageeState extends State<homePagee> {
       height: MediaQuery.of(context).size.height * .1075,
       child: InkWell(
         onTap: () => buttonpressed(buttontext),
-        splashColor: Colors.grey,
+        splashColor: Colors.blueGrey.shade900,
         child: Center(
           child: Text(
             buttontext,
@@ -61,69 +64,64 @@ class _homePageeState extends State<homePagee> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: Center(
-          child: Text(
-            "CALCULATOR",
-            style: TextStyle(fontSize: 50, color: Colors.black),
-          ),
-        ),
-        backgroundColor: Colors.blueGrey,
-      ),
       body: ListView(
         children: [
+          SizedBox(height: 20),
           Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height * .232,
-            color: Colors.grey.shade500,
+            //  color: Colors.grey.shade500,
             child: Text(
               "$eqn",
-              style:
-                  TextStyle(fontSize: MediaQuery.of(context).size.height * .05),
+              style: TextStyle(
+                  color: Colors.blue.shade200,
+                  fontSize: MediaQuery.of(context).size.height * .05),
             ),
           ),
           Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height * .08,
-            color: Colors.white54,
+            //   color: Colors.white54,
             child: Text(
               "$result",
               style: TextStyle(
+                  color: Colors.white,
                   fontSize: MediaQuery.of(context).size.height * .071),
               textAlign: TextAlign.right,
             ),
           ),
+          Divider(),
           Table(
             children: [
               TableRow(children: [
-                button("⌦", Colors.pinkAccent.shade700),
-                button("; )", Colors.yellow.shade500),
-                button("^", Colors.blue.shade300),
-                button("C", Colors.redAccent),
+                button("^", Colors.blue.shade100),
+                button("; )", Colors.yellowAccent),
+                button("C", Colors.deepOrangeAccent),
+                button("⌦", Colors.teal.shade300),
               ]),
               TableRow(children: [
-                button("*", Colors.blue),
-                button("1", Colors.cyan),
-                button("2", Colors.blue.shade300),
-                button("3", Color(0xDA1260ED)),
+                button("*", Colors.blue.shade100),
+                button("1", Colors.blueGrey),
+                button("2", Colors.blueGrey),
+                button("3", Colors.blueGrey),
               ]),
               TableRow(children: [
-                button("/", Colors.blue),
-                button("4", Colors.cyan),
-                button("5", Colors.blue.shade300),
-                button("6", Color(0xDA1260ED)),
+                button("/", Colors.blue.shade100),
+                button("4", Colors.blueGrey),
+                button("5", Colors.blueGrey),
+                button("6", Colors.blueGrey),
               ]),
               TableRow(children: [
-                button("-", Colors.blue),
-                button("7", Colors.cyan),
-                button("8", Colors.blue.shade300),
-                button("9", Color(0xDA1260ED)),
+                button("-", Colors.blue.shade100),
+                button("7", Colors.blueGrey),
+                button("8", Colors.blueGrey),
+                button("9", Colors.blueGrey),
               ]),
               TableRow(children: [
-                button("+", Colors.blue),
-                button(".", Colors.blue.shade600),
-                button("0", Colors.blue.shade300),
-                button("=", Colors.green),
+                button("+", Colors.blue.shade100),
+                button(".", Colors.blue.shade100),
+                button("0", Colors.blueGrey),
+                button("=", Colors.blue.shade700),
               ]),
             ],
           ),
